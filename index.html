@@ -7,12 +7,33 @@
     <title>To-Do App</title>
 </head>
 <body>
+    <header>
+        <h1>To-Do App</h1>
+    </header>
     <div class="todo-container">
-        <h1>To Do List</h1>
+        <h1>ToDo ToDay</h1>
         <input type="text" id="new-task" placeholder="Add a new task...">
+        <select name="Priority" id="task-priority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+        <input type="date" id="task-due-date">
         <button id="add-task">Add Task</button>
-        <ul id="todo-li"></ul>
+        <ul id="task-list"></ul>
     </div>
+
+    <section id="reflection-section">
+        <h2>Daily Reflection</h2>
+        <textarea id="reflection-input" placeholder="What went well today?"></textarea>
+        <button id="save-reflection-btn">Save Reflection</button>
+        <p id="saved-reflection"></p>
+    </section>
+
+    <section id="progress-tracker">
+        <h2>Progress Tracker</h2>
+        <p id="completed-tasks-cnt">Completed Tasks: 0</p>
+    </section>
     <script src="script.js"></script>
 </body>
 </html>

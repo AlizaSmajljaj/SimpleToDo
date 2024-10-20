@@ -6,8 +6,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const saveReflectionBtn = document.getElementById('save-reflection-btn');
     const savedReflection = document.getElementById('saved-reflection');
     const completedTasksCount = document.getElementById('completed-tasks-cnt');
-
+    
+    const resetBtn = document.createElement('button');
+    resetBtn.textContent = 'Reset All';
+    document.body.appendChild(resetBtn);
+    
     let done = 0;
+
+    resetBtn.addEventListener('click', function() {
+        taskList.innerHTML = '';  
+        done = 0;
+        updateProgress(); 
+        savedReflection.textContent = ''; 
+    });
 
     addTaskBtn.addEventListener('click', function() {
         const newTask = taskInput.value;
@@ -18,11 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const li = document.createElement('li');
             li.textContent = `${newTask} - Due: ${dueDate} - Priority: ${priority}`; 
 
-            
             if (priority === 'high') li.style.color = 'red';
             else if (priority === 'medium') li.style.color = 'orange';
 
-            
             const completeBtn = document.createElement('button');
             completeBtn.textContent = 'Complete';
             completeBtn.addEventListener('click', function() {
@@ -30,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 done++;
                 updateProgress();
             });
-
 
             const editBtn = document.createElement('button');
             editBtn.textContent = 'Edit';
@@ -60,5 +68,3 @@ document.addEventListener('DOMContentLoaded', function() {
         completedTasksCount.textContent = "Completed Tasks: " + done;
     }
 });
-
-      

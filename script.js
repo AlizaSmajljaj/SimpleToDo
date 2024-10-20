@@ -6,7 +6,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const saveReflectionBtn = document.getElementById('save-reflection-btn');
     const savedReflection = document.getElementById('saved-reflection');
     const completedTasksCount = document.getElementById('completed-tasks-cnt');
-
+    const resetBtn = document.createElement('button');
+    resetBtn.textContent = 'Reset All';
+    document.body.appendChild(resetBtn); 
+    resetBtn.addEventListener('click', function() {
+        taskList.innerHTML = '';  
+        done = 0;
+        updateProgress(); 
+        savedReflection.textContent = ''; 
+    });
     let done = 0;
 
     addTaskBtn.addEventListener('click', function() {
